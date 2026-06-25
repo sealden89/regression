@@ -1,0 +1,14 @@
+d1: drift, l=10*cm;
+t1: target, l=5*cm, material="copper";
+l1: line=(d1, t1);
+use, l1;
+
+sample, all;
+
+beam, particle="proton",
+      energy=1*TeV;
+
+option, physicsList="g4FTFP_BERT",
+        defaultRangeCut=1*cm;
+
+option, storeTrajectories= {{ STORE_TRAJECTORIES }} ,storeTrajectorySecondaryParticles={{ STORE_SECONDARIES }} ,storeTrajectoryDepth={{ STORE_DEPTH }};
